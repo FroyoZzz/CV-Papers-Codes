@@ -10,10 +10,11 @@
 """
 
 import torch.nn as nn
+from torchvision.models import vgg16
 
 
 class VGG(nn.Module):
-    def __init__(self):
+    def __init__(self, pretrained=True):
         super(VGG, self).__init__()
 
         # conv1 1/2
@@ -56,6 +57,18 @@ class VGG(nn.Module):
         self.conv5_3 = nn.Conv2d(512, 512, kernel_size=3, padding=1)
         self.relu5_3 = nn.ReLU(inplace=True)
         self.pool5 = nn.MaxPool2d(kernel_size=2, stride=2)
+        
+        # load pretrained params from torchvision.models.vgg16(pretrained=True)
+        if pretrained:
+            pretrained_model = vgg16(pretrained=pretrained)
+            pretrained_params = pretrained_model.state_dict()
+            keys = list(pretrained_params.keys())
+            new_dict = {}
+            for index, key in enumerate(self.state_dict().keys()):
+                new_dict[key] = pretrained_params[keys[index]]
+            self.load_state_dict(new_dict)
+
+
 
     def forward(self, x):
         x = self.relu1_1(self.conv1_1(x))

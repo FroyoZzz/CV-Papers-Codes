@@ -1,0 +1,1 @@
+python .\train.py --mode test --ckpt "models\050.ckpt"

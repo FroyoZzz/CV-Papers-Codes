@@ -10,7 +10,7 @@
 """
 
 import torch.nn as nn
-from vgg import VGG
+from model.vgg import VGG
 import torch
 from torchvision.models import resnet18
 
