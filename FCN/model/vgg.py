@@ -68,8 +68,6 @@ class VGG(nn.Module):
                 new_dict[key] = pretrained_params[keys[index]]
             self.load_state_dict(new_dict)
 
-
-
     def forward(self, x):
         x = self.relu1_1(self.conv1_1(x))
         x = self.relu1_2(self.conv1_2(x))
