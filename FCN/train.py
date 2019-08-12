@@ -21,7 +21,6 @@ from dataset import CustomDataset
 from torch.utils.data import random_split, DataLoader
 import visdom
 from PIL import Image
-import matplotlib.pyplot as plt
 
 CUDA = torch.cuda.is_available()
 logging.basicConfig(format='%(asctime)s: %(levelname)s: [%(filename)s:%(lineno)d]: %(message)s', level=logging.INFO)
@@ -217,7 +216,7 @@ def main():
         return
 
     # optimizer = torch.optim.SGD(mymodel.parameters(), lr=options.lr, momentum=0.9, weight_decay=0.00001)
-    optimizer = torch.optim.Adam(mymodel.parameters())
+    optimizer = torch.optim.Adam(mymodel.parameters(), lr=options.lr)
     criterion = nn.BCEWithLogitsLoss()
 
     logging.info('Start training: Total epochs: {}, Batch size: {}, Training size: {}, Validation size: {}'.

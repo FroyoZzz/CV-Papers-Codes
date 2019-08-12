@@ -12,7 +12,6 @@
 import torch.nn as nn
 from model.vgg import VGG
 import torch
-from torchvision.models import resnet18
 
 
 class FCN32s(nn.Module):
