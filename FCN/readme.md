@@ -1,6 +1,6 @@
-#Pytorch-FCN
+# Pytorch-FCN
 
-##Requirements
+## Requirements
 - pytorch >= 1.0.0
 - torchvision >= 0.3.0
 - visdom
@@ -19,7 +19,7 @@
 python train.py
 ```
 
-##Testing
+## Testing
 测试集图像: **data/testImages**
 
 测试集图像标签: **data/testMasks**
