@@ -7,7 +7,7 @@
 - Pillow
 - numpy
 
-##Training
+## Training
 训练集图像: **data/BagImages**
 
 训练集图像标签: **data/BagImagesMasks**
