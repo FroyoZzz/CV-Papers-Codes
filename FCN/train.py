@@ -60,7 +60,7 @@ def train(**kwargs):
         batches += 1
         
         if (i + 1) % verbose == 0:
-            logging.info('Training Loss: %.6f' % epoch_loss / batches)
+            logging.info('Training Loss: %.6f' % (epoch_loss / batches))
             logging.info('')
 
     # save checkpoint model
