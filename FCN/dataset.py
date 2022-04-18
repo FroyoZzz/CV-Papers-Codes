@@ -32,7 +32,7 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, index):
         if self.mode in ("train", "val"):
-            image_name = self.image_list[index].split("\\")[-1].split(".")[0]
+            image_name = os.path.basename(self.image_list[index]).split(".")[0]
             X = Image.open(self.image_list[index])
             
             mask = np.array(Image.open(os.path.join(self.mask_path, image_name+".jpg")).convert('1').resize((256, 256)))
