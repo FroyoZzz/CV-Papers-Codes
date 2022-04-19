@@ -136,7 +136,7 @@ def test(**kwargs):
         pred = np.argmin(pred, axis=1)
         for j, p in enumerate(path):
             im = Image.fromarray(pred.astype('uint8')[j]*255, "L")
-            im.save(os.path.join("data/testPreds", p.split("\\")[-1]))
+            im.save(os.path.join("data/testPreds", os.path.basename(p)))
 
     end_time = time.time()
     logging.info('Testing Time: %d s' % (end_time - start_time))
