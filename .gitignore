@@ -2,6 +2,7 @@
 data/
 cat/
 models/
+mydata/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
