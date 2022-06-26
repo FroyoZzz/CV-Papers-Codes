@@ -60,7 +60,7 @@ def train(**kwargs):
         batches += 1
         
         if (i + 1) % verbose == 0:
-            logging.info('Training Loss: %.6f' % epoch_loss / batches)
+            logging.info('Training Loss: %.6f' % (epoch_loss / batches))
             logging.info('')
 
     # save checkpoint model
@@ -136,7 +136,7 @@ def test(**kwargs):
         pred = np.argmin(pred, axis=1)
         for j, p in enumerate(path):
             im = Image.fromarray(pred.astype('uint8')[j]*255, "L")
-            im.save(os.path.join("data/testPreds", p.split("\\")[-1]))
+            im.save(os.path.join("data/testPreds", os.path.basename(p)))
 
     end_time = time.time()
     logging.info('Testing Time: %d s' % (end_time - start_time))
